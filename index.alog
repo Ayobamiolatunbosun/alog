@@ -1,0 +1,24 @@
+def sum_of_distinct_elements(arr1, arr2):
+    # Combine both arrays
+    combined = arr1 + arr2
+    
+    # Create a dictionary to count the occurrences of each element
+    element_count = {}
+    for element in combined:
+        if element in element_count:
+            element_count[element] += 1
+        else:
+            element_count[element] = 1
+    
+    # Sum up elements that have exactly one occurrence
+    sum_of_distinct = 0
+    for element, count in element_count.items():
+        if count == 1:
+            sum_of_distinct += element
+            
+    return sum_of_distinct
+
+# Example usage
+set1 = [3, 1, 7, 9]
+set2 = [2, 4, 1, 9, 3]
+print(sum_of_distinct_elements(set1, set2))  # Output: 13
